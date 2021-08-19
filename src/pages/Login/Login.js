@@ -3,7 +3,7 @@ import { Button, Input, Text, Heading} from "@chakra-ui/react";
 const Login = () => {
     return(
         <div>
-            <Heading className={"title-header-position"}>Corralón</Heading>
+            <Heading className={"title-header-position"}>Corralón Ciudadela</Heading>
             <form>
                 <div>
                     <Text className={"left-text"}>Usuario</Text>
@@ -16,7 +16,6 @@ const Login = () => {
                         Ingresar
                     </Button>
                 </div>
-
             </form>
         </div>
     )

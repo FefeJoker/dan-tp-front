@@ -44,6 +44,14 @@ html, body, #root, .App {
   margin: 0.5%;
 }
 
+.border-form{
+  border-radius: 1em;
+  border: 0.1em solid white;
+  padding: 0.01em 0.5em;
+  margin: 0.5em auto 0.5em auto;
+}
+
+
 
 
 code {

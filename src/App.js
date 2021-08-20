@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar/NavBar"
 import AltaCliente from "./pages/AltaCliente/AltaCliente";
 
 function App() {
+
     return (
         <div className="App">
             <Router>

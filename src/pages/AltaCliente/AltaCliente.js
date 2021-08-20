@@ -1,4 +1,5 @@
 import {
+    Button,
     Checkbox,
     Heading,
     Input,
@@ -9,12 +10,23 @@ import {
     Text
 } from "@chakra-ui/react";
 import {useState} from "react";
+import Obras from "../../components/Obras/Obras";
+import AgregarObra from "../../components/AgregarObra/AgregarObra";
 
 const AltaCliente = () => {
     const format = (val) => `$` + val
     const parse = (val) => val.replace(/^\$/, "")
 
     const [value, setValue] = useState("0")
+    const [obras, setObra] = useState([])
+
+    const deleteObra = (id) => {
+        setObra(obras.filter((o) => o.id !== id))
+    }
+
+    const addObra = (obra) => {
+        setObra([...obras, obra])
+    }
 
     return(
         <div>
@@ -42,7 +54,15 @@ const AltaCliente = () => {
                 <Checkbox className={"left-text"}>
                     Habilitado Online
                 </Checkbox>
-                
+                <AgregarObra addObra={addObra}/>
+                {obras.length > 0 ? (<Obras obras={obras} deleteObra={deleteObra}/>)
+                                    :   ("")
+                }
+                <div className={"right-text"}>
+                    <Button>
+                        Confirmar
+                    </Button>
+                </div>
             </form>
         </div>
     )

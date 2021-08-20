@@ -29,6 +29,11 @@ const NavBar = () => {
                         Alta de Cliente
                     </MenuItem>
                 </Link>
+                <Link to="/gestionpedidos">
+                    <MenuItem>
+                        Gestión de Pedidos
+                    </MenuItem>
+                </Link>
             </MenuList>
         </Menu>
     )

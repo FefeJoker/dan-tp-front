@@ -4,6 +4,7 @@ import Login from "./pages/Login/Login"
 import AltaProducto from "./pages/AltaProducto/AltaProducto";
 import NavBar from "./components/NavBar/NavBar"
 import AltaCliente from "./pages/AltaCliente/AltaCliente";
+import GestionPedidos from "./pages/GestionPedidos/GestionPedidos";
 
 function App() {
 
@@ -20,6 +21,9 @@ function App() {
                         </Route>
                         <Route path="/altacliente">
                             <AltaCliente/>
+                        </Route>
+                        <Route path="/gestionpedidos">
+                            <GestionPedidos/>
                         </Route>
                         <Route path="/">
                             <Login/>

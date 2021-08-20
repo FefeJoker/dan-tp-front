@@ -1,0 +1,11 @@
+.bordes{
+    border-radius: 1em;
+    border: 0.1em solid grey;
+    padding: 0.01em 0.5em;
+    margin: 0.5em auto 0.5em auto;
+}
+.bordes h3{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

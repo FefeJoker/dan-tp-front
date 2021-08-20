@@ -5,6 +5,7 @@ import AltaProducto from "./pages/AltaProducto/AltaProducto";
 import NavBar from "./components/NavBar/NavBar"
 import AltaCliente from "./pages/AltaCliente/AltaCliente";
 import GestionPedidos from "./pages/GestionPedidos/GestionPedidos";
+import AltaPedido from "./pages/AltaPedido/AltaPedido";
 
 function App() {
 
@@ -21,6 +22,9 @@ function App() {
                         </Route>
                         <Route path="/altacliente">
                             <AltaCliente/>
+                        </Route>
+                        <Route path="/altapedido">
+                            <AltaPedido/>
                         </Route>
                         <Route path="/gestionpedidos">
                             <GestionPedidos/>

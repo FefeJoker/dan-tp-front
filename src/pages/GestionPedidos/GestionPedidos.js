@@ -1,5 +1,6 @@
 import {Button, Heading} from "@chakra-ui/react";
 import Pedidos from "../../components/Pedidos/Pedidos";
+import {Link} from "react-router-dom";
 
 const GestionPedidos = () => {
     const pedidos = [
@@ -50,7 +51,9 @@ const GestionPedidos = () => {
     return(
         <div>
             <Heading className={"title-header-position"}>Corralón Ciudadela</Heading>
-            <Button>Agregar Pedido</Button>
+            <Link to={"/altapedido"}>
+                <Button>Agregar Pedido</Button>
+            </Link>
             <Heading size={"md"} style={{textAlign: "center"}}> Pedidos </Heading>
             {pedidos.length > 0 ? (<Pedidos pedidos={pedidos}/>)
                 :   ("")

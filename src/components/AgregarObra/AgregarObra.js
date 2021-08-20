@@ -20,7 +20,7 @@ const AgregarObra = ({addObra}) => {
     const [superficie, setSuperficie] = useState(0)
     const [latitud, setLatitud] = useState(0)
     const [longitud, setLongitud] = useState(0)
-    const [tipoObra, setTipoObra] = useState({})
+    const [tipoObra, setTipoObra] = useState()
     const [tipoObras, setTipoObras] = useState([
         {
             id: 1,

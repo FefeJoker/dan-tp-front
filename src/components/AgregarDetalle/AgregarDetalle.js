@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {
     Button,
     Heading,
@@ -16,14 +16,13 @@ const AgregarDetalle = ({addDetalle}) => {
     const [id, setId] = useState(1)
     const [cantidad, setCantidad] = useState(1)
     const [producto, setProducto] = useState()
+    const axios = require("axios")
+    const [productos, setProductos] = useState([])
 
-    const productos = [
-        {
-            id: 1,
-            descripcion: "Producto 1",
-            precio: 1000
-        }
-    ] //TODO fetch productos
+
+    async function fetchProductos() {
+        return await axios.get("http://backend.fehler.gregoret.com.ar:8085/producto-service/api/producto")
+    }  //TODO cambiar url
 
     const onClick = (e) => {
         e.preventDefault()
@@ -42,6 +41,10 @@ const AgregarDetalle = ({addDetalle}) => {
             setCantidad(1)
         }
     }
+
+    useEffect(() => {
+        fetchProductos().then((res) => setProductos(res.data))
+    }, [])
     return(
         <form className={"border-form"}>
             <Heading size={"md"} style={{textAlign: "center"}}> Agregar Detalle de Pedido </Heading>
@@ -50,7 +53,7 @@ const AgregarDetalle = ({addDetalle}) => {
             >
                 {productos.length > 0 ? (productos.map((producto) => (
                     <option value={producto.id}>
-                        {producto.descripcion}
+                        {producto.descripcion_prod}
                     </option>
                 ))) : ""
                 }

@@ -10,7 +10,7 @@ import {
     Select,
     Text
 } from "@chakra-ui/react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import "./AgregarObra.css"
 
 const AgregarObra = ({addObra}) => {
@@ -21,23 +21,32 @@ const AgregarObra = ({addObra}) => {
     const [latitud, setLatitud] = useState(0)
     const [longitud, setLongitud] = useState(0)
     const [tipoObra, setTipoObra] = useState()
-    const [tipoObras, setTipoObras] = useState([
-        {
-            id: 1,
-            descripcion: "T1"
-        },
-        {
-            id: 2,
-            descripcion: "T2"
-        }
-    ]) //TODO fetch tipos de obra
+    const axios = require("axios")
+    const [tipoObras, setTipoObras] = useState([])
 
+    async function fetchTipoObras() {
+        return await axios.get("http://backend.fehler.gregoret.com.ar:8085/usuarios-service/api/tipo-obra")
+    } //TODO cambiar url
 
     const onPressAdd = (e) => {
         e.preventDefault()
 
+        console.log(tipoObra)
         if(tipoObra !== undefined){
-            addObra({id, descripcion, direccion, superficie, latitud, longitud, tipoObra})
+
+
+            addObra(
+                {
+                    id: id,
+                    descripcion: descripcion,
+                    direccion: direccion,
+                    superficie: superficie,
+                    latitud: latitud,
+                    longitud: longitud,
+                    tipo: tipoObra
+                }
+            )
+
             setId(id + 1)
             setDescripcion("")
             setDireccion("")
@@ -46,6 +55,10 @@ const AgregarObra = ({addObra}) => {
             setLongitud(0)
         }
     }
+
+    useEffect(() => {
+        fetchTipoObras().then((res) => setTipoObras(res.data))
+    }, [])
 
     return(
         <form className={"border-form"}>
@@ -93,7 +106,7 @@ const AgregarObra = ({addObra}) => {
                         onChange={(e) => setTipoObra(tipoObras.find((to) => to.id == e.target.value))}
                 >
                     {tipoObras.length > 0 ? (tipoObras.map((tipo) => (
-                        <option value={tipo.id}>
+                        <option key={tipo.id} value={tipo.id}>
                             {tipo.descripcion}
                         </option>
                     ))) : ""

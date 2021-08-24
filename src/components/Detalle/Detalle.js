@@ -7,7 +7,7 @@ const Detalle = ({detalle, deleteDetalle}) => {
             <h3>
                 Id: {" " + detalle.id}  <CloseIcon style={{cursor: "pointer"}} onClick={() => deleteDetalle(detalle.id)}/>
             </h3>
-            <h3>Producto: {" " + detalle.producto.descripcion}</h3>
+            <h3>Producto: {" " + detalle.producto.descripcion_prod}</h3>
             <h4>Cantidad: {" " + detalle.cantidad}</h4>
             <h5>Precio: {" $" + detalle.precio}</h5>
         </div>

@@ -1,52 +1,21 @@
 import {Button, Heading} from "@chakra-ui/react";
 import Pedidos from "../../components/Pedidos/Pedidos";
 import {Link} from "react-router-dom";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 const GestionPedidos = () => {
-    const pedidos = [
-        {
-            id: 1,
-            fechaPedido: "10/10/2012",
-            estadoPedido: {
-                id: 1,
-                estado: "Estado 1"
-            },
-            detalles: [
-                {
-                    cantidad: 1,
-                    precio: 10,
-                    producto: {
-                        id: 1
-                    }
-                }
-            ],
-            obra:{
-                id: 1,
-                descripcion: "Obra 1"
-            }
-        },
-        {
-            id: 2,
-            fechaPedido: "11/10/2012",
-            estadoPedido: {
-                id: 1,
-                estado: "Estado 2"
-            },
-            detalles: [
-                {
-                    cantidad: 1,
-                    precio: 10,
-                    producto: {
-                        id: 1
-                    }
-                }
-            ],
-            obra:{
-                id: 1,
-                descripcion: "Obra 2"
-            }
-        }
-    ] //TODO fetch pedidos del cliente
+    const [pedidos, setPedidos] = useState([])
+
+    const fetchPedidos = async () => {
+        const cliente = JSON.parse(localStorage.getItem("cliente"))
+
+        return await axios.get(`http://backend.fehler.gregoret.com.ar:8085/pedidos-service/api/pedido/cliente/${cliente.id}`)
+    } //TODO cambiar url
+
+    useEffect(() => {
+        fetchPedidos().then((res) => setPedidos(res.data))
+    }, [])
 
     return(
         <div>

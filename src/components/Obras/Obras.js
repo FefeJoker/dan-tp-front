@@ -4,7 +4,7 @@ const Obras = ({obras, deleteObra}) => {
     return(
         <>
             {obras.map((obra) => (
-                <Obra key={obra.id} obra={obra} deleteObra={deleteObra}/>
+                <Obra obra={obra} key={obra.id} deleteObra={deleteObra}/>
             ))}
         </>
     )

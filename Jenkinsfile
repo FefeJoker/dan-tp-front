@@ -16,7 +16,7 @@ pipeline {
                 sh "docker build -t guillegregoret/front ."
                 sh 'docker ps -f name=front -q | xargs --no-run-if-empty docker container stop'
                 sh 'docker container ls -a -fname=front -q | xargs -r docker container rm'
-                sh "docker run -d --name front -p 3000:3000 guillegregoret/front"
+                sh "docker run -d --name front -p 9095:80 guillegregoret/front"
             }
         }
         /*stage('analisis estatico') {

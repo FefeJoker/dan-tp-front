@@ -20,7 +20,7 @@ const AltaPedido = () => {
             }
 
 
-            axios.post(`http://backend.fehler.gregoret.com.ar:8085/pedidos-service/api/pedido`, pedido)
+            axios.post(`http://fehler.gregoret.com.ar:85/pedidos-service/api/pedido`, pedido)
         } //TODO cambiar url
 
     }
@@ -36,7 +36,7 @@ const AltaPedido = () => {
     async function fetchObras() {
         const cliente = JSON.parse(localStorage.getItem("cliente"))
 
-        return await axios.get(`http://backend.fehler.gregoret.com.ar:8085/usuarios-service/api/obra?idCliente=${cliente.id}`)
+        return await axios.get(`http://fehler.gregoret.com.ar:85/usuarios-service/api/obra?idCliente=${cliente.id}`)
     }  //TODO cambiar url
 
     useEffect(() => {

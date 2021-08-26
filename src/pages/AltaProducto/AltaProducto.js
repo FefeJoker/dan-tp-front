@@ -25,7 +25,7 @@ const AltaProducto = () => {
     const axios = require("axios")
 
     const fetchTipoProducto = async () => {
-        return await axios.get(`http://backend.fehler.gregoret.com.ar:8085/producto-service/api/unidad`)
+        return await axios.get(`http://fehler.gregoret.com.ar:85/producto-service/api/unidad`)
     } //TODO cambiar url
 
     const fetchProducto = async () => {
@@ -42,7 +42,7 @@ const AltaProducto = () => {
             }
 
             console.log(data)
-            return await axios.post(`http://backend.fehler.gregoret.com.ar:8085/producto-service/api/producto`, data)
+            return await axios.post(`http://fehler.gregoret.com.ar:85/producto-service/api/producto`, data)
         }
     } //TODO cambiar url
 

@@ -1,13 +1,10 @@
-# build project
-FROM node:12.19-alpine AS build
-WORKDIR /dan-tp
-#COPY ./frontend /frontend
-#RUN npm ci
-RUN npm start
-
-# create server image
-#FROM nginx:1.19.3-alpine AS create_server
-#COPY nginx.conf /etc/nginx/nginx.conf
-#COPY --from=build /frontend/build /usr/share/nginx/html
-
-#CMD nginx -g "daemon off;"
+# Step 1
+FROM node:10-alpine as build-step
+RUN mkdir /app
+WORKDIR /app
+COPY package.json /app
+RUN npm install
+COPY . /app
+RUN npm run build
+FROM nginx:1.17.1-alpine
+COPY --from=build-step /app/build /usr/share/nginx/html

@@ -45,7 +45,7 @@ const AltaCliente = () => {
                 habilitadoOnline: habilitadoOnline,
                 obras: obras
             }
-            await axios.post(`http://backend.fehler.gregoret.com.ar:8085/usuarios-service/api/cliente`, cliente)
+            await axios.post(`http://fehler.gregoret.com.ar:85/usuarios-service/api/cliente`, cliente)
         } //TODO cambiar url
 
         console.log(obras.length)

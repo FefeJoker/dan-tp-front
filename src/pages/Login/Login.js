@@ -16,7 +16,7 @@ const Login = () => {
 
         console.log(data)
 
-        return await axios.post("http://backend.fehler.gregoret.com.ar:8085/usuarios-service/api/usuario/login", data)
+        return await axios.post("http://fehler.gregoret.com.ar:85/usuarios-service/api/usuario/login", data)
     }
 
     const onClick = async () => {

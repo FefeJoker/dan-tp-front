@@ -25,7 +25,7 @@ const AgregarObra = ({addObra}) => {
     const [tipoObras, setTipoObras] = useState([])
 
     async function fetchTipoObras() {
-        return await axios.get("http://backend.fehler.gregoret.com.ar:8085/usuarios-service/api/tipo-obra")
+        return await axios.get("http://fehler.gregoret.com.ar:85/usuarios-service/api/tipo-obra")
     } //TODO cambiar url
 
     const onPressAdd = (e) => {

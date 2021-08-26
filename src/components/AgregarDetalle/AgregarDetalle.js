@@ -21,7 +21,7 @@ const AgregarDetalle = ({addDetalle}) => {
 
 
     async function fetchProductos() {
-        return await axios.get("http://backend.fehler.gregoret.com.ar:8085/producto-service/api/producto")
+        return await axios.get("http://fehler.gregoret.com.ar:85/producto-service/api/producto")
     }  //TODO cambiar url
 
     const onClick = (e) => {

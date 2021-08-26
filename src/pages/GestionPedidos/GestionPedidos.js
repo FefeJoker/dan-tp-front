@@ -10,7 +10,7 @@ const GestionPedidos = () => {
     const fetchPedidos = async () => {
         const cliente = JSON.parse(localStorage.getItem("cliente"))
 
-        return await axios.get(`http://backend.fehler.gregoret.com.ar:8085/pedidos-service/api/pedido/cliente/${cliente.id}`)
+        return await axios.get(`http://fehler.gregoret.com.ar:85/pedidos-service/api/pedido/cliente/${cliente.id}`)
     } //TODO cambiar url
 
     useEffect(() => {
